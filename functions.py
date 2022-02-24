@@ -7,5 +7,4 @@ def readGist(apiLink):
   content = r.json()["files"][secondIndex]["content"]
 
   contentAsList = content.split(", ")
-  print(contentAsList)
   return contentAsList

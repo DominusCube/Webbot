@@ -110,7 +110,7 @@ test = ["flaky", "pretend", "pytest (>=3.0.1)"]
 
 [[package]]
 name = "selenium"
-version = "4.1.0"
+version = "3.141.0"
 description = ""
 category = "main"
 optional = false
